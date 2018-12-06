@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean JudeicatorInsert = Judge.insert(saveFullname, saveAge, saveGender);
 
-        if(JudeicatorInsert == true){
+        if(JudeicatorInsert){
             Toast.makeText(this, "Insertion successful", Toast.LENGTH_SHORT).show();
         }
         else Toast.makeText(this, "Insertion failed", Toast.LENGTH_SHORT).show();
@@ -56,5 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void Search(View View){
         Table.moveToLast();
         JudeicatorDisplay();
+        Table.close();
+        Table = Judge.selectAllRecords();
     }
 }
